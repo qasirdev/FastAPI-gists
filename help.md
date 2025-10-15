@@ -70,7 +70,7 @@ pip install jinja2
 ```
 pip3 freeze > requirements.tsx
 pip install -r requirements.tsx
-uvicorn main:app --host 0.0.0.0 --port 10000
+uvicorn Project5.TodoApp.main:app --host 0.0.0.0 --port 10000
 ```
 ====
 ```

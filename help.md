@@ -76,6 +76,8 @@ uvicorn Project5.TodoApp.main:app --host 0.0.0.0 --port 10000
 ```
 productions deploy of PostgreSQL:
 elephantsql.com
+https://aiven.io/postgresql
+https://neon.com/pricing
 ```
 ====
 ```

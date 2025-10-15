@@ -9,7 +9,12 @@ app = FastAPI()
 
 Base.metadata.create_all(bind=engine)
 
-app.mount("/static", StaticFiles(directory="TodoApp/static"), name="static")
+import os
+
+# Use package-relative path so mounting works no matter the current working directory
+HERE = os.path.dirname(__file__)
+static_dir = os.path.join(HERE, "static")
+app.mount("/static", StaticFiles(directory=static_dir), name="static")
 
 
 @app.get("/")

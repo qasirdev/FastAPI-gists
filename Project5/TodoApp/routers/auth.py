@@ -10,6 +10,11 @@ from passlib.context import CryptContext
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from jose import jwt, JWTError
 from fastapi.templating import Jinja2Templates
+import os
+
+# Use package-relative templates directory so templates are found regardless of CWD
+HERE = os.path.dirname(__file__)
+templates_dir = os.path.join(os.path.dirname(HERE), "templates")
 
 router = APIRouter(
     prefix='/auth',
@@ -48,7 +53,7 @@ def get_db():
 
 db_dependency = Annotated[Session, Depends(get_db)]
 
-templates = Jinja2Templates(directory="TodoApp/templates")
+templates = Jinja2Templates(directory=templates_dir)
 
 
 ### Pages ###

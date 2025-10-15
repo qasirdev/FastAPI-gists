@@ -8,8 +8,13 @@ from ..database import SessionLocal
 from .auth import get_current_user
 from starlette.responses import RedirectResponse
 from fastapi.templating import Jinja2Templates
+import os
 
-templates = Jinja2Templates(directory="TodoApp/templates")
+# Use package-relative templates directory so templates are found regardless of CWD
+HERE = os.path.dirname(__file__)
+templates_dir = os.path.join(os.path.dirname(HERE), "templates")
+
+templates = Jinja2Templates(directory=templates_dir)
 
 router = APIRouter(
     prefix='/todos',
